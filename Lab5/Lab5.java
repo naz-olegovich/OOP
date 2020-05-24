@@ -1,5 +1,8 @@
 package Lab5;
-
+/*
+9130%17=1
+Вивести всі речення заданого тексту в порядку зростання кількості слів у них.
+ */
 
 import java.util.Arrays;
 import java.util.Comparator;
