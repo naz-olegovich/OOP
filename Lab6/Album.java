@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 
 public class Album {
     private static int album_size = 3;
-    public static Song[] tracks = new Song[album_size];
+    public static Track[] tracks = new Track[album_size];
     private int counter;
 
-    public void add_track(Song track) {
+    public void add_track(Track track) {
         tracks[counter++] = track;
     }
 

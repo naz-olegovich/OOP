@@ -1,7 +1,7 @@
 package Lab6;
 
 public abstract class Track {
-    private String name;
+    public String name;
     private double duration;
 
 
