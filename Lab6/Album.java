@@ -1,5 +1,7 @@
 package Lab6;
 
+import Lab8.WrongDurationValueException;
+
 import java.math.BigDecimal;
 
 public class Album {

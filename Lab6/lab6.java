@@ -15,7 +15,7 @@ public class lab6 {
         Album album = new Album();
         album.add_track(new PopSong("Memories", 4));
         album.add_track(new RapSong("Eminem - Not Afraid", 6));
-        album.add_track(new JazzSong("Eminem - Lose yourself", 4.37));
+        album.add_track(new JazzSong("Louis Armstrong - You're The Top", 4.37));
 //        album.add_track(new RapSong("", 4.37));
 
         System.out.printf("Тривалість альбому %s мин\n", album.get_duration());

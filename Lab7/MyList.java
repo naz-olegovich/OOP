@@ -29,14 +29,14 @@ public class MyList implements List<Track> {
 
     @Override
     public boolean isEmpty() {
-        return head==null;
+        return head == null;
     }
 
     @Override
     public boolean contains(Object o) {
         Iterator iterator = iterator();
-        while (iterator.hasNext()){
-            if (iterator.next()==o){
+        while (iterator.hasNext()) {
+            if (iterator.next() == o) {
                 return true;
             }
         }
@@ -47,6 +47,7 @@ public class MyList implements List<Track> {
     public Iterator<Track> iterator() {
         return new Iterator<Track>() {
             private Link currentLink = head;
+
             @Override
             public boolean hasNext() {
                 return currentLink != null;
@@ -68,11 +69,11 @@ public class MyList implements List<Track> {
     @Override
     public Object[] toArray() {
         int counter = 0;
-        Track [] arrayOfTracks = new Track[size];
+        Track[] arrayOfTracks = new Track[size];
         Iterator<Track> iterator = iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             arrayOfTracks[counter] = iterator.next();
-            }
+        }
         return arrayOfTracks;
     }
 
@@ -98,10 +99,10 @@ public class MyList implements List<Track> {
 
     @Override
     public boolean remove(Object o) {
-        if(contains(o)){
+        if (contains(o)) {
             Iterator<Track> iterator = iterator();
-            while (iterator.hasNext()){
-                if(iterator.next()==o){
+            while (iterator.hasNext()) {
+                if (iterator.next() == o) {
                     delEl((Track) o);
                     size--;
                 }
@@ -166,15 +167,15 @@ public class MyList implements List<Track> {
     public void clear() {
         head = null;
         tail = null;
-        size=0;
+        size = 0;
     }
 
     @Override
     public Track get(int index) {
         Iterator<Track> iterator = iterator();
         int real_index = 0;
-        while (iterator.hasNext()){
-            if(real_index++ == index){
+        while (iterator.hasNext()) {
+            if (real_index++ == index) {
                 return (iterator.next());
             }
             iterator.next();
@@ -187,19 +188,18 @@ public class MyList implements List<Track> {
         Iterator<Track> iterator = iterator();
         int counter = 0;
         int real_index = 0;
-        Track [] arr = new Track[0];
-        while (iterator.hasNext()){
-            if(real_index++ >= index){
+        Track[] arr = new Track[0];
+        while (iterator.hasNext()) {
+            if (real_index++ >= index) {
                 Track next = iterator.next();
                 arr = addTrack(arr, next, counter++);
                 remove(next);
-            }
-            else{
+            } else {
                 iterator.next();
             }
         }
         add(element);
-        for(int i = 1; i<arr.length; i++){
+        for (int i = 1; i < arr.length; i++) {
             add(arr[i]);
         }
         return null;
@@ -210,19 +210,18 @@ public class MyList implements List<Track> {
         Iterator<Track> iterator = iterator();
         int counter = 0;
         int real_index = 0;
-        Track [] arr = new Track[0];
-        while (iterator.hasNext()){
-            if(real_index++ >= index){
+        Track[] arr = new Track[0];
+        while (iterator.hasNext()) {
+            if (real_index++ >= index) {
                 Track next = iterator.next();
                 arr = addTrack(arr, next, counter++);
                 remove(next);
-            }
-            else{
-            iterator.next();
+            } else {
+                iterator.next();
             }
         }
         add(element);
-        for(Track el: arr){
+        for (Track el : arr) {
             add(el);
         }
 
@@ -233,8 +232,8 @@ public class MyList implements List<Track> {
     public Track remove(int index) {
         Iterator iterator = iterator();
         int real_index = 0;
-        while (iterator.hasNext()){
-            if(real_index++ == index){
+        while (iterator.hasNext()) {
+            if (real_index++ == index) {
                 remove(iterator.next());
                 return null;
             }
@@ -268,6 +267,7 @@ public class MyList implements List<Track> {
     public List<Track> subList(int fromIndex, int toIndex) {
         return null;
     }
+
     void delEl(Track data) {
         if (head == null)
             return;
@@ -286,19 +286,20 @@ public class MyList implements List<Track> {
                 if (tail == t.getNext()) {
                     tail = t;
                 }
-                t.setNext( t.getNext().getNext());
+                t.setNext(t.getNext().getNext());
                 return;
             }
             t = t.getNext();
         }
     }
-    public static Track [] addTrack(Track[] arr, Track x, int n){
+
+    public static Track[] addTrack(Track[] arr, Track x, int n) {
         int i;
         Track newarr[] = new Track[n + 1];
         for (i = 0; i < n; i++)
             newarr[i] = arr[i];
         newarr[n] = x;
-        return  newarr;
+        return newarr;
     }
 
 }

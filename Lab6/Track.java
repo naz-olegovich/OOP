@@ -1,5 +1,8 @@
 package Lab6;
 
+import Lab8.WrongDurationValueException;
+import Lab8.WrongNameValueException;
+
 public abstract class Track {
     public String name;
     private double duration;
@@ -8,11 +11,16 @@ public abstract class Track {
     public Track(String name, double duration)
            {
         if (name == null) {
-            throw new WrongNameValueException("Incorrect duration");
+            throw new WrongNameValueException("Incorrect name "+"'"+name+"'");
+        }
+        boolean isNumeric = name.chars().allMatch( Character::isDigit );
+        if (isNumeric){
+            throw new WrongNameValueException("Incorrect name "+"'"+name+"'");
+
         }
 
         if (duration <= 0) {
-            throw new WrongDurationValueException("Incorrect duration");
+            throw new WrongDurationValueException("Incorrect duration: "+duration);
         }
         int intPart = (int) duration;
         if (duration - intPart > 0.6) {
@@ -37,18 +45,3 @@ public abstract class Track {
 }
 
 
-class WrongNameValueException extends RuntimeException {
-    public WrongNameValueException(String str) {
-        System.out.println(str);
-        System.exit(1);
-
-    }
-}
-
-class WrongDurationValueException extends RuntimeException {
-    public WrongDurationValueException(String str) {
-        System.out.println(str);
-        System.exit(1);
-
-    }
-}
