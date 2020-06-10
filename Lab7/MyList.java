@@ -187,6 +187,7 @@ public class MyList implements List<Track> {
         int counter = 0;
         int real_index = 0;
         Track[] arr = new Track[0];
+        if (size >= index){
         while (iterator.hasNext()) {
             if (real_index++ >= index) {
                 Track next = iterator.next();
@@ -195,7 +196,7 @@ public class MyList implements List<Track> {
             } else {
                 iterator.next();
             }
-        }
+        }}
         add(element);
         for (int i = 1; i < arr.length; i++) {
             add(arr[i]);
