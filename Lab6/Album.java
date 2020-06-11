@@ -34,27 +34,41 @@ public class Album {
         return minutes + seconds;
     }
 
-    public String getSong(Double time) {
+
+
+    public void getSong(Double down, Double up) {
         String result = "Not found";
 
-        if (time <= 0) {
+        if (down <= 0 | up <= 0) {
             throw new WrongDurationValueException("\nIncorrect duration - not found");
         }
-        int intPart = time.intValue();
-        if (time - intPart > 0.6) {
+
+        int intPart1 = up.intValue();
+        int intPart2 = down.intValue();
+
+        if (up - intPart1 > 0.6 | down - intPart2 > 0.6) {
             throw new WrongDurationValueException("Incorrect duration of song(s) - not found\n\nEnter the duration in such format: **.^^\n" +
                     "Where ** - minutes, ^^ - seconds\n** and ^^ couldn't be bigger than 60");
         }
+
+
+
+        System.out.println("\nЗнайдені композиції: ");
+        int foundTracks = 0;
         for (Track track : tracks) {
             if (track != null) {
-                if (track.get_duration() == time) {
-                    result = track.toString();
-                    break;
+                if (track.get_duration() >= down & track.get_duration() <= up) {
+                    System.out.println(track.toString());
+                    foundTracks++;
                 }
-
             }
         }
-        return result;
-    }
 
+        
+        if (foundTracks == 0) {
+            System.out.println("not found\n");
+        } else {
+            System.out.println("\n");
+        }
+    }
 }

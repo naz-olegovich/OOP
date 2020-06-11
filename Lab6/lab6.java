@@ -7,6 +7,8 @@ package Lab6;
 Знайти композицію, що відповідає заданому діапазону довжини треків.
  */
 
+import Lab8.WrongDurationValueException;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -19,7 +21,14 @@ public class lab6 {
 //        album.add_track(new RapSong("", 4.37));
 
         System.out.printf("Тривалість альбому %s мин\n", album.get_duration());
-        System.out.println("Знайдена композиція: " + album.getSong(6.0) + "\n");
+
+        try {
+            album.getSong(3.0, 6.5);
+        } catch (WrongDurationValueException e){
+            System.out.println("Be more attentive :)\n");
+        }
+
+
 
         Arrays.sort(Album.tracks, new Sort());
         for (int i = 0; i < Album.tracks.length; i++) {
