@@ -23,9 +23,9 @@ public class lab5 {
 
 }
 
-class sort_words implements Comparator<Sentences> {
+class sort_words implements Comparator<Sentence> {
     @Override
-    public int compare(Sentences o1, Sentences o2) {
+    public int compare(Sentence o1, Sentence o2) {
         return o1.qunt - o2.qunt;
     }
 }

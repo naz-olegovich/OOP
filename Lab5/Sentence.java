@@ -1,12 +1,12 @@
 package Lab5;
 
-public class Sentences {
-    Puncts[] punctuation;
-    public static Words[] words;
+public class Sentence {
+    Punctuation[] punctuation;
+    public static Word[] words;
     public String sentt;
     public int qunt;
 
-    public Sentences(String sent) {
+    public Sentence(String sent) {
         sentt = sent;
         String punctuation_symbols = ".!,-?";
         sent = sent.replaceAll("[\\s]{2,}", " ");
@@ -30,11 +30,11 @@ public class Sentences {
         qunt = counter_words;
     }
 
-    public  Puncts[] addPuncts(int n, Puncts[] arr, String x) {
+    public static Punctuation[] addPuncts(int n, Punctuation[] arr, String x) {
         int i;
 
         // create a new array of size n+1
-        Puncts[] newarr = new Puncts[n + 1];
+        Punctuation[] newarr = new Punctuation[n + 1];
 
         // insert the elements from
         // the old array into the new array
@@ -43,16 +43,16 @@ public class Sentences {
         for (i = 0; i < n; i++)
             newarr[i] = arr[i];
 
-        newarr[n] = new Puncts(x);
+        newarr[n] = new Punctuation(x);
 
         return newarr;
     }
 
-    public static Words[] addWord(int n, Words[] arr, String x) {
+    public static Word[] addWord(int n, Word[] arr, String x) {
         int i;
 
         // create a new array of size n+1
-        Words[] newarr = new Words[n + 1];
+        Word[] newarr = new Word[n + 1];
 
         // insert the elements from
         // the old array into the new array
@@ -61,7 +61,7 @@ public class Sentences {
         for (i = 0; i < n; i++)
             newarr[i] = arr[i];
 
-        newarr[n] = new Words(x);
+        newarr[n] = new Word(x);
 
         return newarr;
     }

@@ -1,7 +1,7 @@
 package Lab5;
 
-public class Letters {
-    public Letters(String ltr) {
+public class Letter {
+    public Letter(String ltr) {
 
     }
 }

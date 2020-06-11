@@ -1,14 +1,14 @@
 package Lab5;
 
 public class Text {
-    public Sentences[] sentences;
+    public Sentence[] sentences;
 
 
     public Text(String txt) {
         String[] sentances_quantity = txt.split("(?<=[?!.])");
-        sentences = new Sentences[sentances_quantity.length];
+        sentences = new Sentence[sentances_quantity.length];
         for (int i = 0; i < sentances_quantity.length; i++) {
-            sentences[i] = new Sentences(sentances_quantity[i]);
+            sentences[i] = new Sentence(sentances_quantity[i]);
         }
     }
 
