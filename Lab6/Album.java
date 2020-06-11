@@ -51,6 +51,10 @@ public class Album {
                     "Where ** - minutes, ^^ - seconds\n** and ^^ couldn't be bigger than 60");
         }
 
+        if (down>up){
+            throw new WrongDurationValueException("\nIncorrect duration - not found");
+        }
+
 
 
         System.out.println("\nЗнайдені композиції: ");
@@ -64,7 +68,7 @@ public class Album {
             }
         }
 
-        
+
         if (foundTracks == 0) {
             System.out.println("not found\n");
         } else {
