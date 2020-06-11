@@ -30,7 +30,7 @@ public class Sentences {
         qunt = counter_words;
     }
 
-    public static Puncts[] addPuncts(int n, Puncts[] arr, String x) {
+    public  Puncts[] addPuncts(int n, Puncts[] arr, String x) {
         int i;
 
         // create a new array of size n+1
